@@ -1,0 +1,11 @@
+# Untuk shared hosting (InfinityFree): seluruh proyek diunggah ke htdocs,
+# semua request diarahkan ke folder public/ milik Laravel.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Cegah akses langsung ke file sensitif
+<FilesMatch "^\.env|composer\.(json|lock)|artisan$">
+    Require all denied
+</FilesMatch>
